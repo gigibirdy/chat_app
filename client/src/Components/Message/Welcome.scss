@@ -1,0 +1,13 @@
+.welcome{
+  color: red;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+@keyframes fadeIn{
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
