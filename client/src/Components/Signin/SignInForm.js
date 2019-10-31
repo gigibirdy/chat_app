@@ -3,15 +3,15 @@ import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import {withContext} from '../Context/Context';
+import {withUserContext} from '../../Context/UserContext';
 
 const SignInForm = (props) => {
   const {username, password, actions} = props.context;
   return(
         <Card.Body>
           <Form onSubmit={async (e) => {e.preventDefault(); const response = await actions.handleSignIn(); if(response.status === 200) {props.history.push('/chat')};}}>
-            <Form.Row>
-              <Col xs={8}>
+            <Form.Row className="d-flex justify-content-center mb-1">
+              <Col xs={12} md={8} xl={4}>
                 <Form.Control
                   size="lg"
                   onChange={actions.handleChange}
@@ -21,8 +21,8 @@ const SignInForm = (props) => {
                   placeholder="Name" />
               </Col>
             </Form.Row>
-            <Form.Row>
-              <Col xs={8}>
+            <Form.Row className="d-flex justify-content-center">
+              <Col xs={12} md={8} xl={4}>
                 <Form.Control
                   size="lg"
                   onChange={actions.handleChange}
@@ -32,9 +32,9 @@ const SignInForm = (props) => {
                   placeholder="Password" />
               </Col>
             </Form.Row>
-            <Form.Row>
-              <Col xs={8}>
-                <Button variant="dark" type="submit">
+            <Form.Row className="d-flex justify-content-center">
+              <Col xs={12} md={8} xl={4} className="d-flex justify-content-center">
+                <Button variant="dark" type="submit" className="mt-4">
                 SUBMIT
                 </Button>
               </Col>
@@ -44,4 +44,4 @@ const SignInForm = (props) => {
   );
 };
 
-export default withContext(SignInForm)
+export default withUserContext(SignInForm)

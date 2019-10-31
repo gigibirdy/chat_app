@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import MessageList from '../Components/Message/MessageList';
 import Room from '../Components/Room/Room';
-import NewRoom from '../Components/NewRoom';
+import NewRoom from '../Components/NewRoom/NewRoom';
 import Send from '../Components/Send/Send';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client'
 import {instanceLocator} from '../config';
 import './Dashboard.scss';
-import {withContext} from '../Components/Context/Context';
+import {withUserContext} from '../Context/UserContext';
 
 
 class Dashboard extends Component {
@@ -18,7 +18,7 @@ class Dashboard extends Component {
     roomName: '',
     messages: [],
     joinedRooms: [],
-    joinableRooms: []
+    joinableRooms: [],
   }
 
   componentDidMount = () => {
@@ -36,7 +36,6 @@ class Dashboard extends Component {
 
     chatManager.connect()
     .then(currentUser => {
-      console.log(currentUser)
       this.currentUser = currentUser;
       this.getRooms();
       this.subscribeToRoom();
@@ -87,29 +86,28 @@ class Dashboard extends Component {
   };
 
   createRoom = (name) => {
-    this.currentUser.createRoom({
-      name
-    })
-    .then(room => this.subscribeToRoom(room.id))
-    .catch(error => console.log('creating new room error: ', error))
+      this.currentUser.createRoom({
+        name
+      })
+      .then(room => this.subscribeToRoom(room.id))
+      .catch(error => console.log('creating new room error: ', error))
   };
 
   render(){
-    console.log(this.state)
     return (
-      <div className="App">
+      <div className="Dashboard">
         <Container fluid>
           <Row>
-            <Col className="pr-0 d-none d-md-block"><Room roomId={this.state.roomId} subscribeToRoom={this.subscribeToRoom} rooms={[...this.state.joinedRooms, ...this.state.joinableRooms]}/></Col>
-            <Col xs={12} md={8} className="pl-0"><MessageList roomName={this.state.roomName} roomId={this.state.roomId} messages={this.state.messages}/></Col>
+            <Col xs={4} className="pr-0"><Room roomId={this.state.roomId} subscribeToRoom={this.subscribeToRoom} rooms={[...this.state.joinedRooms, ...this.state.joinableRooms]}/></Col>
+            <Col xs={8} className="pl-0"><MessageList roomName={this.state.roomName} roomId={this.state.roomId} messages={this.state.messages}/></Col>
           </Row>
           <Row>
-            <Col className="pr-0 d-none d-md-block"><NewRoom createRoom={this.createRoom}/></Col>
-            <Col xs={12} md={8} className="pl-0"><Send disable={!this.state.roomId} sendMessage={this.sendMessage}/></Col>
+            <Col xs={4} className="pr-0"><NewRoom rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]} createRoom={this.createRoom}/></Col>
+            <Col xs={8} className="pl-0"><Send disable={!this.state.roomId} sendMessage={this.sendMessage}/></Col>
           </Row>
         </Container>
       </div>
     );
   }
 }
-export default withContext(Dashboard);
+export default withUserContext(Dashboard);

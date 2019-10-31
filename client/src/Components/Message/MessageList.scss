@@ -4,5 +4,13 @@
 }
 .alert{
   position: sticky;
-  top: 0; 
+  top: 0;
+}
+.clickRoom{
+  font-size: 80px;
+}
+@media screen and (max-width: 900px) {
+  .clickRoom{
+    font-size: 40px;
+  }
 }

@@ -6,19 +6,19 @@ import './Room.scss';
 export default (props) => {
   const rooms = props.rooms.sort((a, b) => a - b)
   return(
-    <Card className="room-card">
+    <Card className="room-card overflow-auto">
       <Card.Body>
-        <h4>Select Chat Room:</h4>
+        <h3><Badge pill variant="dark">Chat Room</Badge></h3>
         <ul className="room-list">
           {rooms.map(room =>
-            <li key={room.id}>
-              <a
+            <li key={room.id} className="room-btn ">
+              <span
                 onClick={() => props.subscribeToRoom(room.id)}
-                href="#">
-                <h4>
+                >
+                <h4 className="font-italic">
                   <Badge pill variant={props.roomId === room.id ? "dark" : "light"}>{room.name}</Badge>
                 </h4>
-              </a>
+              </span>
             </li>
           )}
         </ul>

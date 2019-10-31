@@ -55,7 +55,6 @@ router.post('/auth', asyncHandler(async (req, res) => {
     const authData = await chatkit.authenticate({
       userId: req.query.user_id
     });
-    console.log(authData)
     res.status(authData.status)
        .send(authData.body);
 }));

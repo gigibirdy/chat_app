@@ -10,16 +10,6 @@ require('dotenv').config();
 
 mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true  });
 
-
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = process.env.DB_URL;
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-// client.connect(err => {
-//   const collection = client.db("chat_app").collection("users");
-//   // perform actions on the collection object
-//   console.log(collection)
-//   client.close();
-// });
 app.use(cors())
 //use routes
 app.use('/', route);

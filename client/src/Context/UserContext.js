@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-export const Context = React.createContext();
+export const UserContext = React.createContext();
 
-export class Provider extends Component {
+export class UserProvider extends Component {
   state = {
     authenticatedUser: Cookies.getJSON('authenticatedUser') || null,
     username: '',
@@ -22,12 +22,11 @@ export class Provider extends Component {
         method: 'post',
         url: 'http://localhost:5000/api/users',
         data: {
-          name: this.state.username,
+          name: this.state.username.toLowerCase(),
           password: this.state.password,
           confirmPassword: this.state.confirmPassword
         }
       })
-      console.log(response)
       return response;
     } catch (error) {
       throw error;
@@ -40,11 +39,10 @@ export class Provider extends Component {
         method: 'get',
         url: 'http://localhost:5000/api/users',
         auth: {
-          username: this.state.username,
+          username: this.state.username.toLowerCase(),
           password: this.state.password
         }
       })
-      console.log(response)
       this.setState({
         authenticatedUser: response.data.user
       });
@@ -55,9 +53,8 @@ export class Provider extends Component {
     }
   };
   render(){
-    console.log(this.state)
     return(
-      <Context.Provider value={{
+      <UserContext.Provider value={{
         ...this.state,
         actions: {
           handleChange: this.handleChange,
@@ -66,17 +63,17 @@ export class Provider extends Component {
         }
       }}>
         {this.props.children}
-      </Context.Provider>
+      </UserContext.Provider>
     );
   }
 };
 
-export function withContext(Component) {
+export function withUserContext(Component) {
   return function ContextComponent(props) {
     return (
-      <Context.Consumer>
+      <UserContext.Consumer>
         {value => <Component {...props} context={value} />}
-      </Context.Consumer>
+      </UserContext.Consumer>
     );
   }
 }

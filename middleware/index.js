@@ -67,7 +67,6 @@ middlewareObj.createDBUser = async (req, res, next) => {
 middlewareObj.authenticatedUser = async(req, res, next) => {
   try{
     const credentials = auth(req);
-    console.log(credentials)
     if(credentials.name){
       const user = await User.findOne({name: credentials.name});
       if(user){

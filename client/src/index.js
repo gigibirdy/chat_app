@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
+import './index.scss';
 import App from './App';
-import {Provider} from './Components/Context/Context';
-
+import {UserProvider} from './Context/UserContext';
 
 ReactDOM.render(
-  <Provider>
-  <App />
-  </Provider>
+  <UserProvider>
+    <App />
+  </UserProvider>
   , document.getElementById('root'));

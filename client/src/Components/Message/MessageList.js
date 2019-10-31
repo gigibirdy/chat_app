@@ -21,10 +21,10 @@ class MessageList extends Component {
     if(!this.props.roomId){
       return (
         <Card className="message-card overflow-auto">
-          <Card.Body className="m-auto d-flex align-items-center">
+          <Card.Body className="m-auto d-flex align-items-center clickRoom">
 
-              <i className="far fa-hand-point-left mr-2" style={{fontSize: "28px"}}></i>
-              <h3 className="mb-0">Click a Room</h3>
+              <i className="far fa-hand-point-left mr-2"></i>
+              <p className="mb-0">Click a Room</p>
 
           </Card.Body>
         </Card>
