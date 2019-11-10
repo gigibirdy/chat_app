@@ -3,13 +3,13 @@
 
 
 <img src="./images/readme_img_001.png" alt="readme_img" align="left" width="400px"/>
-<img src="./images/readme_img_002.png" alt="readme_img" align="right" width="400px"/>\
+<img src="./images/readme_img_002.png" alt="readme_img" align="right" width="400px"/>
 
 
 
 
 
-This project was developed with Chatkit SDK/API, Express, React and MongoDB Atlas. This is a simple text chat app that user can sign up, log in and subscribe to a chat room to discuss their favorite video games. Chat rooms are sorted in ascendant order for users' convenience. Once enter a room, a welcome message will popup to welcome the user and 100 recent messages will be retrieved. Users can also create their own chat rooms. A message will popup and prevent user to create a chat room that already exists. When user is at the most recent chat message, window will auto scroll if new messages come in and remain still if user is reading chat history and away from most recent message.
+<p>This project was developed with Chatkit SDK/API, Express, React and MongoDB Atlas. This is a simple text chat app that user can sign up, log in and subscribe to a chat room to discuss their favorite video games. Chat rooms are sorted in ascendant order for users' convenience. Once enter a room, a welcome message will popup to welcome the user and 100 recent messages will be retrieved. Users can also create their own chat rooms. A message will popup and prevent user to create a chat room that already exists. When user is at the most recent chat message, window will auto scroll if new messages come in and remain still if user is reading chat history and away from most recent message.<p>
 
 
 ## Get Started
