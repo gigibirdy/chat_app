@@ -2,7 +2,7 @@
 
 
 
-<img src="./images/readme_img_001.png" alt="readme_img" width="450px" float="right"/>
+<img src="./images/readme_img_001.png" alt="readme_img" style="float:right; width:450px"/>
 <img src="./images/readme_img_002.png" alt="readme_img" width="450px"/>
 
 
