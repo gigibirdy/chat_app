@@ -3,7 +3,7 @@
 
 
 <img src="./images/readme_img_001.png" alt="readme_img" align="left" width="400px"/>
-<img src="./images/readme_img_002.png" alt="readme_img" align="right" width="400px"/><br/>
+<img src="./images/readme_img_002.png" alt="readme_img" align="right" width="400px"/>\
 
 
 
