@@ -2,8 +2,8 @@
 
 
 
-<img src="./images/readme_img_001.png" alt="readme_img" width="400px"/>
-<img src="./images/readme_img_002.png" alt="readme_img" width="400px"/>
+<img src="./images/readme_img_001.png" alt="readme_img" width="450px" float="right"/>
+<img src="./images/readme_img_002.png" alt="readme_img" width="450px"/>
 
 
 
