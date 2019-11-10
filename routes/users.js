@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const uuidv1 = require('uuid/v1');
+//require chatkit client SDK
 const Chatkit = require('@pusher/chatkit-server');
 require('dotenv').config();
 
@@ -23,6 +23,7 @@ function asyncHandler(cb) {
   }
 };
 
+//instantiating chatkit client object
 const chatkit = new Chatkit.default({
   instanceLocator: process.env.INSTANCE_LOCATOR,
   key: process.env.KEY,

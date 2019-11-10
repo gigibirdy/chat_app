@@ -4,7 +4,9 @@ import Badge from 'react-bootstrap/Badge';
 import './Room.scss';
 
 export default (props) => {
-  const rooms = props.rooms.sort((a, b) => a - b)
+  //sort the rooms in ascendant order
+  const rooms = props.rooms.sort((a, b) => (a.name > b.name) ? 1 : -1)
+
   return(
     <Card className="room-card overflow-auto">
       <Card.Body>

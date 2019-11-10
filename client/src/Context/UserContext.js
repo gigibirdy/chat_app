@@ -44,7 +44,9 @@ export class UserProvider extends Component {
         }
       })
       this.setState({
-        authenticatedUser: response.data.user
+        authenticatedUser: response.data.user,
+        username: '',
+        password: ''
       });
       Cookies.set('authenticatedUser', JSON.stringify(response.data.user), {expires: 1});
       return response;
@@ -52,6 +54,12 @@ export class UserProvider extends Component {
       throw error;
     }
   };
+  handleSignOut = () => {
+    this.setState({
+      authenticatedUser: null
+    });
+    Cookies.remove('authenticatedUser')
+  }
   render(){
     return(
       <UserContext.Provider value={{
@@ -59,7 +67,8 @@ export class UserProvider extends Component {
         actions: {
           handleChange: this.handleChange,
           handleSignUp: this.handleSignUp,
-          handleSignIn: this.handleSignIn
+          handleSignIn: this.handleSignIn,
+          handleSignOut: this.handleSignOut
         }
       }}>
         {this.props.children}

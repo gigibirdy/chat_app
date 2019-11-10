@@ -23,7 +23,7 @@ class Send extends Component {
   render(){
     return (
       <Card>
-        <Card.Body className="p-0">
+        <Card.Body>
           <Form onSubmit={this.handleSubmit}>
             <Form.Row>
               <Col xs={11} className="pr-0">

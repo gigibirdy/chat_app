@@ -15,4 +15,4 @@ const PrivateRoute = ({component: Component, ...props}) =>{
   );
 };
 
-export default withUserContext(PrivateRoute)
+export default withUserContext(PrivateRoute);

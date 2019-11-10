@@ -1,0 +1,20 @@
+.welcome{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  animation-name: fadeInOut;
+  animation-duration: 6s;
+  z-index: 20;
+}
+@keyframes fadeInOut{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}

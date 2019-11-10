@@ -2,10 +2,6 @@
   color: black;
   height: 80vh;
 }
-.alert{
-  position: sticky;
-  top: 0;
-}
 .clickRoom{
   font-size: 80px;
 }
@@ -13,4 +9,8 @@
   .clickRoom{
     font-size: 40px;
   }
+}
+.message{
+  position: relative;
+  z-index: 10;
 }

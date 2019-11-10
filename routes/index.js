@@ -4,7 +4,7 @@ const router = express.Router();
 //setup a friendly greeting for the root route
 router.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to the REST API project!',
+    message: 'Welcome to the Chat App project!',
   });
 });
 
